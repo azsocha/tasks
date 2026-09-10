@@ -5,7 +5,15 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return [];
+    } else if (numbers.length === 1) {
+        const oneE = [...numbers, ...numbers];
+        return oneE;
+    } else {
+        const ends = [numbers[0], numbers[numbers.length - 1]];
+        return ends;
+    }
 }
 
 /**
@@ -25,7 +33,6 @@ export function stringsToIntegers(numbers: string[]): number[] {
     const Ints = numbers.map((numbers: string): number =>
         Number.isNaN(parseInt(numbers)) ? 0 : parseInt(numbers),
     );
-
     return Ints;
 }
 
