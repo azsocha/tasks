@@ -191,7 +191,7 @@ What shape can you make with one line?
             body: "What is the last letter of the English alphabet?",
             type: "short_answer_question",
             options: [],
-            expected: "z",
+            expected: "Z",
             points: 1,
             published: true,
         });
