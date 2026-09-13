@@ -8,7 +8,7 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-    type: QuestionType
+    type: QuestionType,
 ): Question {
     return {};
 }
@@ -21,6 +21,16 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+    //console.log("1. " + answer);
+    answer = answer.toLowerCase();
+    //console.log("2. " + answer);
+    answer = answer.trim();
+    //console.log("3. " + answer + " expected: " + question.expected);
+    question.expected = question.expected.toLowerCase();
+    question.expected = question.expected.trim();
+    if (answer === question.expected) {
+        return true;
+    }
     return false;
 }
 
@@ -115,7 +125,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
-    { points }: { points: number }
+    { points }: { points: number },
 ): Question {
     return contentQuestion;
 }
