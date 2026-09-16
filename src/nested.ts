@@ -82,7 +82,15 @@ export function sumPoints(questions: Question[]): number {
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const pubQ = questions.filter(
+        (questions: Question): boolean => questions.published,
+    );
+    const pubP = pubQ.reduce(
+        (currentTotal: number, questions: Question) =>
+            currentTotal + questions.points,
+        0,
+    );
+    return pubP;
 }
 
 /***
@@ -103,7 +111,13 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const questionCSV = questions
+        .map(
+            (question: Question): string =>
+                `${question.id},${question.name},${question.options.length},${question.points},${question.published ? "true" : "false"}`,
+        )
+        .join("\n");
+    return "id,name,options,points,published\n" + questionCSV;
 }
 
 /**
@@ -112,7 +126,14 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    return questions.map(
+        (questions: Question): Answer => ({
+            questionId: questions.id,
+            text: "",
+            submitted: false,
+            correct: false,
+        }),
+    );
 }
 
 /***
@@ -120,7 +141,10 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const pubQ = questions.map(
+        (questions: Question): Question => ({ ...questions, published: true }),
+    );
+    return pubQ;
 }
 
 /***
@@ -128,6 +152,21 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
+    //const allLowPrices = prices.every((price: number): boolean => price < 10);
+    const allShort = questions.every(
+        (questions: Question): boolean =>
+            questions.type === "short_answer_question",
+    );
+    if (allShort) {
+        return true;
+    }
+    const allMult = questions.every(
+        (questions: Question): boolean =>
+            questions.type === "multiple_choice_question",
+    );
+    if (allMult) {
+        return true;
+    }
     return false;
 }
 
