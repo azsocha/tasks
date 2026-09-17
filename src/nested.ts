@@ -1,6 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -216,7 +216,19 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType,
 ): Question[] {
-    return [];
+    return questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                {
+                    ...question,
+                    type: newQuestionType,
+                    options:
+                        newQuestionType !== "multiple_choice_question" ?
+                            []
+                        :   question.options,
+                }
+            :   question,
+    );
 }
 
 /**
@@ -235,7 +247,21 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    return questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                {
+                    ...question,
+                    options:
+                        targetOptionIndex === -1 ?
+                            [...question.options, newOption]
+                        :   question.options.map(
+                                (opt: string, idx: number): string =>
+                                    idx === targetOptionIndex ? newOption : opt,
+                            ),
+                }
+            :   question,
+    );
 }
 
 /***
@@ -249,5 +275,14 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number,
 ): Question[] {
-    return [];
+    const index = questions.findIndex(
+        (questions: Question) => questions.id === targetId,
+    );
+    const duplicate = duplicateQuestion(newId, questions[index]);
+    const dupeA = [
+        ...questions.slice(0, index + 1),
+        duplicate,
+        ...questions.slice(index + 1),
+    ];
+    return dupeA;
 }
