@@ -2,6 +2,12 @@ import React from "react";
 import "./App.css";
 import { Button } from "react-bootstrap";
 import img from "./assets/cat.jpeg";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): React.JSX.Element {
     return (
@@ -100,6 +106,19 @@ function App(): React.JSX.Element {
                     ></div>
                 </div>
             </div>
+
+            <hr />
+            <Counter />
+            <hr />
+            <RevealAnswer />
+            <hr />
+            <StartAttempt />
+            <hr />
+            <TwoDice />
+            <hr />
+            <ChangeType />
+            <hr />
+            <CycleHoliday />
         </div>
     );
 }
