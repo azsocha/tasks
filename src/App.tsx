@@ -22,7 +22,6 @@ function App(): React.JSX.Element {
             >
                 UD CISC275 with React Hooks and TypeScript
             </header>
-<<<<<<< HEAD
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
@@ -111,19 +110,6 @@ function App(): React.JSX.Element {
                     ></div>
                 </div>
             </div>
-
-=======
-            <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <ShoveBox></ShoveBox>
-            <hr></hr>
-            <Counter></Counter>
->>>>>>> upstream/task-components
             <hr />
             <Counter />
             <hr />
@@ -136,6 +122,14 @@ function App(): React.JSX.Element {
             <ChangeType />
             <hr />
             <CycleHoliday />
+            <hr></hr>
+            <DoubleHalf></DoubleHalf>
+            <hr></hr>
+            <ChooseTeam></ChooseTeam>
+            <hr></hr>
+            <ColoredBox></ColoredBox>
+            <hr></hr>
+            <ShoveBox></ShoveBox>
         </div>
     );
 }
