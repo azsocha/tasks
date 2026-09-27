@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
+interface ShoveBoxProp {
+    position: number;
+    setPosition: (newPosition: number) => void;
+}
+
 function ShoveBoxButton({
     position,
     setPosition,
-}: {
-    position: number;
-    setPosition: (newPosition: number) => void;
-}) {
+}: ShoveBoxProp): React.JSX.Element {
     return (
         <Button
             onClick={() => {
-                setPosition(4 + position);
+                setPosition(position + 4);
             }}
         >
             Shove the Box
@@ -19,8 +21,11 @@ function ShoveBoxButton({
     );
 }
 
-function MoveableBox(): React.JSX.Element {
-    const [position, setPosition] = useState<number>(10);
+interface MoveableBoxProp {
+    position: number;
+}
+
+function MoveableBox({ position }: MoveableBoxProp): React.JSX.Element {
     return (
         <div
             data-testid="moveable-box"
@@ -31,26 +36,26 @@ function MoveableBox(): React.JSX.Element {
                 border: "1px solid blue",
                 display: "inline-block",
                 verticalAlign: "bottom",
-                marginLeft: position + "px",
+                marginLeft: `${position}px`,
             }}
         ></div>
     );
 }
 
 export function ShoveBox(): React.JSX.Element {
-    const box = MoveableBox();
+    const [position, setPosition] = useState<number>(10);
 
     return (
         <div>
-            <h3>Shove Box</h3>
-            {/* <span>The box is at: {box.position}</span>
+            <div>Shove Box</div>
+            <span>The box is at: {position}</span>
             <div>
                 <ShoveBoxButton
-                    position={box.position}
-                    setPosition={box.setPosition}
+                    position={position}
+                    setPosition={setPosition}
                 ></ShoveBoxButton>
-                {box}
-            </div> */}
+                <MoveableBox position={position}></MoveableBox>
+            </div>
         </div>
     );
 }

@@ -35,7 +35,7 @@ export function DoubleHalf(): React.JSX.Element {
 
     return (
         <div>
-            <h3>Double Half</h3>
+            <div>Double Half</div>
             <div>
                 The current value is: <span>{dhValue}</span>
             </div>

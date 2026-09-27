@@ -20,13 +20,13 @@ function App(): React.JSX.Element {
                 className="App-header"
                 style={{ backgroundColor: "navy", color: "white" }}
             >
-                UD CISC275 with React Hooks and TypeScript
+                <h1>UD CISC275 with React Hooks and TypeScript</h1>
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-            <h1>Alanna Socha</h1>
+            <p>Alanna Socha</p>
             <p>Hello World</p>
             <Button
                 onClick={() => {
@@ -110,26 +110,36 @@ function App(): React.JSX.Element {
                     ></div>
                 </div>
             </div>
-            <hr />
-            <Counter />
-            <hr />
-            <RevealAnswer />
-            <hr />
-            <StartAttempt />
-            <hr />
-            <TwoDice />
-            <hr />
-            <ChangeType />
-            <hr />
-            <CycleHoliday />
-            <hr></hr>
-            <DoubleHalf></DoubleHalf>
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <ShoveBox></ShoveBox>
+            <div>
+                <Counter />
+            </div>
+            <div>
+                <RevealAnswer />
+            </div>
+            <div>
+                <StartAttempt />
+            </div>
+            <div>
+                <TwoDice />
+            </div>
+            <div>
+                <ChangeType />
+            </div>
+            <div>
+                <CycleHoliday />
+            </div>
+            <div>
+                <DoubleHalf></DoubleHalf>
+            </div>
+            <div>
+                <ChooseTeam></ChooseTeam>
+            </div>
+            <div>
+                <ColoredBox></ColoredBox>
+                <div>
+                    <ShoveBox></ShoveBox>
+                </div>
+            </div>
         </div>
     );
 }
