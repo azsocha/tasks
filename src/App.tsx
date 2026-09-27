@@ -8,6 +8,10 @@ import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
+import { DoubleHalf } from "./bad-components/DoubleHalf";
+import { ColoredBox } from "./bad-components/ColoredBox";
+import { ShoveBox } from "./bad-components/ShoveBox";
+import { ChooseTeam } from "./bad-components/ChooseTeam";
 
 function App(): React.JSX.Element {
     return (
@@ -16,13 +20,13 @@ function App(): React.JSX.Element {
                 className="App-header"
                 style={{ backgroundColor: "navy", color: "white" }}
             >
-                UD CISC275 with React Hooks and TypeScript
+                <h1>UD CISC275 with React Hooks and TypeScript</h1>
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-            <h1>Alanna Socha</h1>
+            <p>Alanna Socha</p>
             <p>Hello World</p>
             <Button
                 onClick={() => {
@@ -106,19 +110,36 @@ function App(): React.JSX.Element {
                     ></div>
                 </div>
             </div>
-
-            <hr />
-            <Counter />
-            <hr />
-            <RevealAnswer />
-            <hr />
-            <StartAttempt />
-            <hr />
-            <TwoDice />
-            <hr />
-            <ChangeType />
-            <hr />
-            <CycleHoliday />
+            <div>
+                <Counter />
+            </div>
+            <div>
+                <RevealAnswer />
+            </div>
+            <div>
+                <StartAttempt />
+            </div>
+            <div>
+                <TwoDice />
+            </div>
+            <div>
+                <ChangeType />
+            </div>
+            <div>
+                <CycleHoliday />
+            </div>
+            <div>
+                <DoubleHalf></DoubleHalf>
+            </div>
+            <div>
+                <ChooseTeam></ChooseTeam>
+            </div>
+            <div>
+                <ColoredBox></ColoredBox>
+                <div>
+                    <ShoveBox></ShoveBox>
+                </div>
+            </div>
         </div>
     );
 }
