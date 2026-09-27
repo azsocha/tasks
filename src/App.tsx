@@ -144,40 +144,25 @@ function App(): React.JSX.Element {
                 <div>
                     <ShoveBox></ShoveBox>
                 </div>
+                <div>
+                    <CheckAnswer expectedAnswer="42"></CheckAnswer>
+                </div>
+                <div>
+                    <GiveAttempts></GiveAttempts>
+                </div>
+                <div>
+                    <EditMode></EditMode>
+                </div>
+                <div>
+                    <ChangeColor></ChangeColor>
+                </div>
+                <div>
+                    <MultipleChoiceQuestion
+                        options={["a", "b", "c"]}
+                        expectedAnswer="b"
+                    ></MultipleChoiceQuestion>
+                </div>
             </div>
-            <hr></hr>
-            <CheckAnswer expectedAnswer="42"></CheckAnswer>
-            <hr></hr>
-            <GiveAttempts></GiveAttempts>
-            <hr></hr>
-            <EditMode></EditMode>
-            <hr></hr>
-            <ChangeColor></ChangeColor>
-            <hr></hr>
-            <MultipleChoiceQuestion
-                options={["a", "b", "c"]}
-                expectedAnswer="b"
-            ></MultipleChoiceQuestion>
-            <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <ShoveBox></ShoveBox>
-            <hr></hr>
-            <Counter></Counter>
-            <hr />
-            <RevealAnswer></RevealAnswer>
-            <hr />
-            <StartAttempt></StartAttempt>
-            <hr />
-            <TwoDice></TwoDice>
-            <hr />
-            <ChangeType></ChangeType>
-            <hr />
-            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
